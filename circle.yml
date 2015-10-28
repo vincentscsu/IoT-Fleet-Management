@@ -20,5 +20,5 @@ deployment:
   hub: 
     branch: master
     commands:
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -e vincentsu.violin@gmail.com -u violinbeats -p vincent
       - docker push circleci/elasticsearch
