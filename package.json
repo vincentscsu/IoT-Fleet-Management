@@ -1,0 +1,28 @@
+{
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "simple node app for testing",
+  "main": "simple.js",
+  "scripts": {
+    "start": "node simple.js",
+    "test": "mocha simpleTest.js"
+  },
+  "dependencies": {
+    "mocha": "^2.3.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/violinbeats/IoT-Fleet-Management.git"
+  },
+  "keywords": [
+    "IoT"
+  ],
+  "bugs": {
+    "url": "https://github.com/violinbeats/IoT-Fleet-Management/issues"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/violinbeats/IoT-Fleet-Management#readme"
+}
