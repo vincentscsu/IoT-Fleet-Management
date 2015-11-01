@@ -1,4 +1,4 @@
-FROM hypriot/rpi-node:latest
+FROM node:latest
 
 ADD package.json package.json
 RUN npm install
