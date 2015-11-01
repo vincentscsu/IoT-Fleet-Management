@@ -10,4 +10,4 @@ deployment:
   hub:
     branch: master
     commands:
-      - $DEPLOY
+      - DEPLOY
