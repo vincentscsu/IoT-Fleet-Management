@@ -9,5 +9,5 @@ test:
 deployment:
   hub:
     branch: master
-	  commands:
-	    - $DEPLOY
+      commands:
+        - $DEPLOY
