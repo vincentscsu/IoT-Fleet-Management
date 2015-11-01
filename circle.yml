@@ -4,7 +4,7 @@ machine:
 
 test:
     override:
-      - mocha NodeJS/simpleTest.js
+      - mocha simpleTest.js
 
 deployment:
   hub:
