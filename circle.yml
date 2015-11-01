@@ -1,3 +1,13 @@
+machine:
+  services:
+      - docker
+
 test:
     override:
       - mocha NodeJS/simpleTest.js
+
+deployment:
+  hub:
+    branch: master
+	  commands:
+	    - $DEPLOY
