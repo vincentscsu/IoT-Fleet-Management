@@ -1,0 +1,8 @@
+{
+  "name": "pir_sensor",
+  "version": "0.0.1",
+  "description": "PIR sensor reader with Node.JS on Raspberry Pi 2.",
+  "dependencies": {
+    "rpi-gpio": "0.7.0"
+  }
+}

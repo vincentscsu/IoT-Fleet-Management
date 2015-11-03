@@ -16,4 +16,4 @@ function readPir() {
 		prev = value;
 	});
 }
-setInterval(readPir, 500);
+setInterval(readPir, 1000);
