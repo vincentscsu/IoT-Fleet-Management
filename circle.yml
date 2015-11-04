@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t violinbeats/iot-fleet-management
+    - docker build -t violinbeats/iot-fleet-management .
 
 test:
     override:
