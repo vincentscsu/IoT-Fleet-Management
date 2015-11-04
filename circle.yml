@@ -2,6 +2,11 @@ machine:
   services:
     - docker
 
+dependencies:
+  override:
+    - docker info
+    - docker build -t violinbeats/iot-fleet-management
+
 test:
     override:
       - mocha simpleTest.js
@@ -10,4 +15,5 @@ deployment:
   hub:
     branch: master
     commands:
-      - $DEPLOY
+      - docker login -e vincentsu.violin@gmail.com -u violinbeats -p vincent
+      - docker push violinbeats/iot-fleet-management
