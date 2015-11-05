@@ -1,10 +1,9 @@
-var array = require('./simple.js');
+var array = require('./simpl.js');
 
 var assert = require('assert');
-describe('Array', function() {
+describe('String', function() {
   describe('#indexOf()', function () {
-    it('should return -1 when the value is not present', function () {
-      assert.equal(-1, array.indexOf(5));
+    it('should return -1 when the character is not present', function () {
       assert.equal(-1, array.indexOf(0));
     });
   });
