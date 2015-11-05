@@ -8,9 +8,11 @@
     "test": "mocha simpleTest.js"
   },
   "dependencies": {
+    "express": "^4.13.3",
     "mocha": "^2.3.3"
   },
   "devDependencies": {
+    "express": "^4.13.3",
     "mocha": "^2.3.3"
   },
   "repository": {
