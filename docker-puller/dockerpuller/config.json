@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "port": 8000,
+    "token": "abc123",
+    "hooks": {
+        "hello": "scripts/hello.sh"
+    }
+}
