@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-var str = 'Hello from Black Pearl #1!';
+var str = 'Hello from Black Pearl!';
 
 app.get('/', function (req, res) {
   res.send(str);
