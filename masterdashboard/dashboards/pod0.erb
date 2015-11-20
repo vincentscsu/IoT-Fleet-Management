@@ -1,0 +1,54 @@
+<% content_for :title do %>My super sweet dashboard<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="welcome" data-view="Text" data-title="Sensor Pods" data-text="Master Node for SPA Center" data-moreinfo="floatgeek.com"></div>
+    </li>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-view="Clock"  style="background-color:#962218"></div>
+</li>
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-view="Button"  data-title="Run Container"  style="background-color:#4466aa"></div>
+</li>
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-view="Button"  data-title="Exec Command"  style="background-color:#ff9618"></div>
+</li>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-id="count" data-view="Graph" data-title="Running Containers" style="background-color:#aa2244"></div>
+</li>
+</ul>
+
+<script type='text/javascript'>
+$(function() {
+    Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":1,"size_y":1},{"col":2,"row":2,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":1,"size_y":1},{"col":3,"row":2,"size_x":1,"size_y":1}]')
+});
+</script>
+
+<% if false %>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-id="motion" data-view="Text" data-title="Motion Sensor" data-text="Off" data-moreinfo="motion"></div>
+</li>
+
+<i class="icon-time icon-background"></i>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-id="logs" data-view="List" data-unordered="false" data-title="Recent Logs" data-moreinfo=" "></div>
+</li>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-id="temperature" data-view="Meter" data-title="Termperature" data-min="0" data-max="100"></div>
+</li>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-view="Counter"  data-title="Counter"  style="background-color:#4466aa"></div>
+</li>
+
+<li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+<div data-id="convergence" data-view="Graph" data-title="CPU Utilization" style="background-color:#ff9618"></div>
+</li>
+
+<% end %>
+
