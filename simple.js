@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-var str = 'Hello from White Pearl!';
+var str = 'Hello from Blue Pearl!';
 
 app.get('/', function (req, res) {
   res.send(str);
