@@ -8,7 +8,11 @@
     "test": "mocha simpleTest.js"
   },
   "dependencies": {
+    "body-parser": "^1.14.1",
+    "dockerode": "^2.2.3",
     "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0",
     "mocha": "^2.3.3"
   },
   "devDependencies": {
