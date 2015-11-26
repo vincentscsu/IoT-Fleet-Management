@@ -21,7 +21,7 @@ app.post('/api/run',function (request, response) {
     console.log(json);
 
     console.log("Image Name:", json.repo_name);
-    child = exec("./accept.sh "+json.repo_name, 
+    child = exec("./agent.sh "+json.repo_name, 
         function (error, stdout, stderr) {
             console.log('stdout: ' + stdout);
             console.log('stderr: ' + stderr);
