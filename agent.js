@@ -1,7 +1,7 @@
 var Docker = require('dockerode');
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
+var server = require('http').Server(app);
 
 var docker = new Docker();
 var container;
@@ -12,8 +12,8 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 
-http.listen(80, function () {
-    console.log('listening at *:3000');
+server.listen(80, function () {
+    console.log('listening at *:80');
 })
 app.post('/api/run',function (request, response) {
     contents=request.body;
