@@ -6,4 +6,4 @@ ADD . .
 
 EXPOSE 8080
 
-CMD ["node", "simple.js"]
+CMD ["node", "src/simple.js"]

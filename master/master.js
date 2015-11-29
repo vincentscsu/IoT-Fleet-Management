@@ -25,16 +25,16 @@ server.listen(80, function () {
 app.post('/api/run',function (request, response) {
     contents=request.body;
     var json = contents;
-    console.log("Image Name:", json.repository.repo_name);
-    child = exec("./master.sh "+ json.repository.repo_name, function (error, stdout, stderr) {
-        console.log('stdout: ' + stdout);
-        console.log('stderr: ' + stderr);
+    console.log("Image Name:", json.repo_name);
+    child = exec("./master.sh "+ json.repo_name, function (error, stdout, stderr) {
+        console.log('stdout: \n' + stdout);
+        console.log('stderr: \n' + stderr);
         if (error !== null) {
             console.log('exec error: ' + error);
         }
 
         var bodyString = JSON.stringify({
-            repo_name: json.repository.repo_name,
+            repo_name: "192.168.1.81:5000/rpi"
         }); 
 
         var headers = {
@@ -50,46 +50,9 @@ app.post('/api/run',function (request, response) {
             headers: headers
         };
         http.request(options).write(bodyString);
+        console.log('Image deployed to agents!\n');
     });
 
     response.send(contents);    // echo the result back
 });
 
-app.get('/api/run',function(req,res){
-    //runExec(container,'/home/webapp/post.sh',res);
-    docker.run('baiqizhang/node_base:0.1', 
-        ['bash', '-c', '/home/webapp/post.sh'], 
-        process.stdout, function (err, data, container) {
-          console.log(data.StatusCode);
-    });
-    res.end("running");
-});
-
-function runExec(container,command,res) {
-  options = {
-    AttachStdout: true,
-    AttachStderr: true,
-    Tty: true,
-    Cmd: [command]
-  };
-  container.exec(options,function(err, exec) {
-    if (err) return;
-    exec.start(function(err, stream) {
-      if (err) return;
-      console.log("run!");
-      stream.setEncoding('utf8');
-      res.writeHead(200, {"Content-Type": "text/html"});
-      res.write('<pre>');
-      stream.pipe(res);
-    });
-  });
-}
-
-docker.listContainers({all: false}, function(err, containers) {
-  containers.forEach(function (containerInfo) {
-    if (containerInfo.Image=='baiqizhang/node_base:0.1'){
-        container = docker.getContainer(containerInfo.Id);
-    }
-    console.log(containerInfo.Image);
-  });
-});

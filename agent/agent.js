@@ -11,9 +11,10 @@ var qs = require('querystring');
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+var PORT = 80;
 
-server.listen(80, function () {
-    console.log('listening at *:80');
+server.listen(PORT, function () {
+    console.log('listening at *:' + PORT);
 })
 app.post('/api/run',function (request, response) {
     contents=request.body;
@@ -23,8 +24,8 @@ app.post('/api/run',function (request, response) {
     console.log("Image Name:", json.repo_name);
     child = exec("./agent.sh "+json.repo_name, 
         function (error, stdout, stderr) {
-            console.log('stdout: ' + stdout);
-            console.log('stderr: ' + stderr);
+            console.log('stdout: \n' + stdout);
+            console.log('stderr: \n' + stderr);
             if (error !== null) {
                 console.log('exec error: ' + error);
             }
