@@ -17,8 +17,10 @@ var exec = require('child_process').exec;
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-server.listen(80, function () {
-    console.log('listening at *:80');
+var PORT = 80;
+
+server.listen(PORT, function () {
+    console.log('listening at *:' + PORT);
 })
 
 // process request from aws
