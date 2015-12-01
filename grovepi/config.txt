@@ -1,2 +1,0 @@
-dtparam=i2c1=on
-dtparam=i2c_arm=on
