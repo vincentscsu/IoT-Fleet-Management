@@ -45,9 +45,10 @@ app.post('/api/run',function (request, response) {
         };
 
         var options = {
-            host: '192.168.1.69',
+	    // second pi's ip
+            host: '192.168.1.82',
             path: '/api/run',
-            port: 80,
+            port: 8000,
             method: 'POST',
             headers: headers
         };
