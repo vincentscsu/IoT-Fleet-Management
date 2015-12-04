@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-PORT = 80;
+PORT = 8080;
 
 var str = 'Hello from Black Pearl!';
 
