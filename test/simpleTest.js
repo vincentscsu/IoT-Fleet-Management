@@ -1,4 +1,4 @@
-var array = require('./simple.js');
+var array = require('./../src/simple.js');
 
 var assert = require('assert');
 describe('String', function() {
