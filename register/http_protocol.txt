@@ -1,3 +1,0 @@
-POST /register {'sensors' : ['temp', 'microphone']}
- -> parse IP, generate id
- -> response(OK, node_id)

@@ -1,0 +1,9 @@
+{
+  "name": "SensorPod-Sensors",
+  "version": "1.0.0",
+  "description": "Aggregated sensor readings.",
+  "dependencies": {
+      "rpi-gpio": "0.7.0",
+      "node-grovepi":"2.0.7"
+  }
+}
