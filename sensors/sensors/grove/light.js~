@@ -4,12 +4,9 @@ var events = require('events');
 var util = require('util');
 var grove = require('node-grovepi').GrovePi;
 
-var temp  = grove.sensors.TemperatureAnalog;
-
-var Temperature = function(pin) {
+var Light = function(pin) {
     this.sensor = null;
-    this._value = 0;
-    var that = this;
+    this._value = this.readValue();
     this.board = new grove.board({
 	debug : false,
 	onError: function(err) {
@@ -17,8 +14,8 @@ var Temperature = function(pin) {
 	},
 	onInit: function(res) {
 	    if (res) {
-		console.log('GrovePi Light version: ' + that.board.version());
-		that.sensor = new temp(pin);
+		console.log('GrovePi Light version: ' + this.board.version());
+		this.sensor = new grove.sensors.LightAnalogSensor(pin);
 	    }
 	}
     });
@@ -32,13 +29,14 @@ var Temperature = function(pin) {
 	}
     }
     
-};
-
-util.inherits(Temperature, events.EventEmitter);
-Temperature.prototype.readValue = function () {
-    if (this.sensor != null) {
-	return this.sensor.read();
+    if (sampleRate) {
+	setInterval(checkChange.bind(this), sampleRate);
     }
 };
 
-module.exports = Temperature;
+util.inherits(Light, events.EventEmitter);
+Light.prototype.readValue = function () {
+    return this.sensor.read();
+};
+
+module.exports = Light;
