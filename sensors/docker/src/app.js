@@ -1,10 +1,11 @@
 var dgram = require('dgram');
 
 // Constants
+var ip = require('./ip')();
 var MY_PORT = 1357;
-var MY_HOST = require('./ip')();
+var MY_HOST = ip;
 var TARGET_PORT = 1234;
-var TARGET_HOST = '192.168.1.115'
+var TARGET_HOST = ip;
 
 
 // request info every second
@@ -34,6 +35,9 @@ server.on('listening', function () {
     console.log("UDP Server listening.");
 });
 server.on('message', function (message, remote) {
-    console.log("Response received: " + message);
+    message = ("" + message).split(";");
+    for (var i = 0; i < message.length; i++) {
+	console.log(message[i].split(":"));
+    }
 });
 server.bind(MY_PORT, MY_HOST);

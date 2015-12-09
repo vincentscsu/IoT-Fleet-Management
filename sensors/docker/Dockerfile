@@ -12,4 +12,4 @@ RUN sudo dpkg -i node_latest_armhf.deb
 
 COPY src /src
 
-CMD ["node", "/src/index.js"]
+CMD ["node", "/src/app.js"]
