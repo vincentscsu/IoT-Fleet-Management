@@ -1,32 +1,40 @@
+
 <% content_for :title do %>My super sweet dashboard<% end %>
 <div class="gridster">
-  <ul>
+<ul>
     <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="welcome" data-view="Text" data-title="Sensor Pods" data-text="Master Node for SPA Center" data-moreinfo="floatgeek.com"></div>
+      <div data-id="welcome" data-view="Text" data-title="Sensor Pods" data-text="Dashboard for SPA Center" data-moreinfo="floatgeek.com"></div>
     </li>
 
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-<div data-view="Clock"  style="background-color:#962218"></div>
-</li>
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-<div data-view="Button"  data-title="Run Container"  style="background-color:#4466aa"></div>
-</li>
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-<div data-view="Button"  data-title="Exec Command"  style="background-color:#ff9618"></div>
-</li>
-
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-<div data-id="count" data-view="Graph" data-title="Running Containers" style="background-color:#aa2244"></div>
-</li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-view="Clock"  style="background-color:#962218"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="master" data-view="Button"  data-title="Master"  data-title2="waiting" data-progress="0" style="background-color:#4466aa"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="pod1" data-view="Button" data-title="Pod #1" data-title2="unregistered" data-progress="0" style="background-color:#ff9618"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="pod2" data-view="Button" data-title="Pod #2" data-title2="unregistered" data-progress="0" style="background-color:#aa2244"></div>
+    </li>
 </ul>
 
 <script type='text/javascript'>
 $(function() {
-    Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":1,"size_y":1},{"col":2,"row":2,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":1,"size_y":1},{"col":3,"row":2,"size_x":1,"size_y":1}]')
+    Dashing.gridsterLayout('[{"col":1,"row":1,"size_x":2,"size_y":1},{"col":3,"row":1,"size_x":1,"size_y":1},{"col":1,"row":2,"size_x":1,"size_y":1},{"col":2,"row":2,"size_x":1,"size_y":1},{"col":3,"row":2,"size_x":1,"size_y":1}]')
 });
 </script>
 
+<center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "title": "TEST" }' \http://<%=request.host%>:<%=request.port%>/widgets/run</div></center>
+</div>
+
 <% if false %>
+
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+<div data-id="count" data-view="Graph" data-title="Running Containers" style="background-color:#aa2244"></div>
+</li>
+
 
 <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
 <div data-id="motion" data-view="Text" data-title="Motion Sensor" data-text="Off" data-moreinfo="motion"></div>

@@ -2,9 +2,14 @@
 echo ""
 echo "Pulling $1..."
 echo ""
+curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"pulling","progress":"5"}' http://localhost:3030/widgets/master
 docker pull $1
 echo ""
 echo "Pushing $1 to local registry..."
+
+sleep 1
+curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"registering","progress":"30"}' http://localhost:3030/widgets/master
+
 # get the name of the image without the repo
 IFS="/" read -ra ADDR <<< "$1"
 tmp=${ADDR[1]}
@@ -19,3 +24,7 @@ echo "Image pushed to local registry."
 echo ""
 echo "Restarting local container..."
 docker run -d -p 8080:8080 --name $tmp localhost:5000/$tmp
+
+sleep 1
+curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"distributing","progress":"50"}' http://localhost:3030/widgets/master
+
