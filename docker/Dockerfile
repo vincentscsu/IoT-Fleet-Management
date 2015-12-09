@@ -1,4 +1,4 @@
-FROM hypriot/rpi-node
+FROM resin/rpi-raspbian:jessie
 RUN apt-get update && \
     apt-get install -y build-essential \
 		       libc6-dev \			

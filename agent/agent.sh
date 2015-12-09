@@ -17,7 +17,8 @@ docker stop $tmp && docker rm $tmp
 # start new container with new image
 sleep 1
 curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"starting","progress":"60"}' http://$2:3030/widgets/pod$3
-docker run -d -p 8080:8080 --name $tmp $1
+#docker run -d -p 8080:8080 --name $tmp $1
+docker run -d --net host $tmp
 
 sleep 1
 curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"running","progress":"100"}' http://$2:3030/widgets/pod$3
