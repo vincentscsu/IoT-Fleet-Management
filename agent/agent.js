@@ -2,6 +2,7 @@ var Docker = require('dockerode');
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
+var http = require('http');
 
 var docker = new Docker();
 var container;
@@ -34,3 +35,17 @@ app.post('/api/run',function (request, response) {
 
     response.send(contents);    // echo the result back
 });
+
+setInterval(function(){
+    var options = {
+        host: MASTER_IP,
+        path: '/api/register',
+        port: 80,
+        method: 'POST',
+    };
+    var req = http.request(options);
+    req.on('error', function(e) {
+          console.log('problem with request: ' + e.message);
+    });
+    req.write("Hi");
+}, 3000);

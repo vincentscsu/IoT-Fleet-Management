@@ -21,5 +21,5 @@ docker run -d -p 8080:8080 --name $tmp $1
 
 sleep 1
 curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"running","progress":"100"}' http://$2:3030/widgets/pod$3
-curl -X POST -d '{}' http://$2:80/api/dist
+curl -X POST -d '{}' http://$2:80/api/ok
 

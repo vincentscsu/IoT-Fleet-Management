@@ -95,7 +95,7 @@ app.post('/api/run',function (request, response) {
         for (var i = 0; i < agentIP.length; i++)
             if (agentIP[i] != ''){
                 var bodyString = JSON.stringify({
-                    repo_name : json.repository.repo_name,
+                    repo_name : "192.168.1.81:5000/rpi",
                     index : i 
                 }); 
 
@@ -111,7 +111,7 @@ app.post('/api/run',function (request, response) {
                     method: 'POST',
                     headers: headers
                 };
-                http_old.request(options).write(bodyString);
+                http.request(options).write(bodyString);
             }
 /*
         var bodyString = JSON.stringify({
