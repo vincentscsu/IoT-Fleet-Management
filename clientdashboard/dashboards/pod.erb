@@ -1,0 +1,28 @@
+
+<% content_for :title do %>My super sweet dashboard<% end %>
+<div class="gridster">
+<ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="welcome" data-view="Text" data-title="Sensor Pods" data-text="Dashboard for SPA Center" data-moreinfo="floatgeek.com"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+    <div data-id="motion" data-view="Text" data-title="Motion Sensor" data-text="Status: Moving" data-moreinfo="" style="background-color:#47bbb3"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-view="Clock"  style="background-color:#962218"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+        <div data-id="temperature" data-view="Meter" data-title="Temperature" data-min="0" data-max="50"></div>
+    </li>
+
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+        <div data-id="light" data-view="Graph" data-title="Light Sensor" style="background-color:#ff9618"></div>
+    </li>
+
+</ul>
+
+<center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "title": "TEST" }' \http://<%=request.host%>:<%=request.port%>/widgets/run</div></center>
+</div>
