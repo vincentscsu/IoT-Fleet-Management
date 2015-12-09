@@ -1,0 +1,30 @@
+<h1 class="title" data-bind="title"></h1>
+<h3 class="title2" data-bind="title2"></h2>
+<div class="status" data-bind="status" style="display:none"></div>
+
+
+<div class="controlgroup" style="display:none">
+    <input class="form-control" id="input" value="baiqizhang/node_base:0.1" style="
+    border-radius: 0;
+    height: 12px;
+    "/>
+
+    <button class="btn btn-info" id="btn" style="
+        border-radius: 0;
+        padding: 6px 15px;
+        ">
+        send
+    </button>
+</div>
+
+<div class="progress" style="
+    border-radius:0px;
+    width: 80%;
+    margin: auto;
+    display:none"
+    >
+    <div class="hidden" id="progress_data" data-bind="progress" style="display:none"></div>
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+        <div class="sr-only" style="height: 12px;"></div>
+    </div>
+</div>

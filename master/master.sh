@@ -13,6 +13,7 @@ curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"registering","progress":"30"}
 # get the name of the image without the repo
 IFS="/" read -ra ADDR <<< "$1"
 tmp=${ADDR[1]}
+echo tmp
 # stop and remove old container
 docker stop $tmp && docker rm $tmp
 # remove old image and push the new one to local registry
