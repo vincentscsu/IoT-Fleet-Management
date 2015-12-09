@@ -10,27 +10,19 @@ var PORT = 1234;
 var HOST = require('./ip')();
 
 var pir_pin = 12;
-var pir_reading = null;
-
-gpio.setup(pir_pin, gpio.DIR_IN, readPir);
+var pir_reading = false;
+gpio.on('change', function(channel, value) {
+    pir_reading = value;
+});
+gpio.setup(pir_pin, gpio.DIR_IN, gpio.EDGE_BOTH);
 console.log("PIR sensing app up and running");
-
-function readPir() {
-    gpio.read(pir_pin, function(err, value) {
-	if (err) {
-	    console.log(err);
-	} else {
-	    return value;
-	}
-    });
-}
 
 function readValues() {
     console.log("Light: " + board.readLight());
-    console.log("Temp: " + board.readTemp());
-    console.log("PIR: " + readPir());
+//    console.log("Temp: " + board.readTemp());
+  //  console.log("PIR: " + pir_reading);
 }
-// setInterval(readValues, 1000);
+setInterval(readValues, 1000);
 
 
 var server = dgram.createSocket('udp4');
