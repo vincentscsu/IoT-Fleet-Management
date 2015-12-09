@@ -31,7 +31,7 @@ util.inherits(Board, events.EventEmitter);
 
 Board.prototype.readLight = function () {
     if (this.light != null) {
-	return this.light.read();
+	return 250 - this.light.read();
     }
 };
 
