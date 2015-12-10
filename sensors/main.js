@@ -9,7 +9,7 @@ var board = new grove.Board();
 
 var PORT = 1234;
 var HOST = require('./ip')();
-var MASTER = '192.168.1.83';
+var MASTER = '192.168.1.82';
 
 /*********************
  ***** PIR SETUP *****
@@ -160,7 +160,8 @@ server.on('message', function (message, remote) {
 	} else if (message[i] == "light") {
 	    response += "light:"+board.readLight().toFixed(2) + ";";
 	} else if (message[i] == "pir") {
-	    response += "pir:"+readPir() + ";";
+	    //response += "pir:"+readPir() + ";";
+	    response += "pir:" + pir_reading + ";";
 	} else {
 	    response += "unrecognized";
 	}

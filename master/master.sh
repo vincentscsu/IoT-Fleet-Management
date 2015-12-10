@@ -24,7 +24,7 @@ echo ""
 echo "Image pushed to local registry."
 echo ""
 echo "Restarting local container..."
-docker run -d -p 8080:8080 --name $tmp localhost:5000/$tmp
+docker run -d -p 8080:8080 --net host --name $tmp localhost:5000/$tmp
 
 sleep 1
 curl -d '{"auth_token":"YOUR_AUTH_TOKEN","title2":"distributing","progress":"50"}' http://localhost:3030/widgets/master
