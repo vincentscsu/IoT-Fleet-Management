@@ -149,7 +149,6 @@ server.on('listening', function () {
 
 server.on('message', function (message, remote) {
     message = ("" +message).split(":");
-    console.log(message);
     var res_host = message.shift();
     var res_port = message.shift();
     var response = "";
@@ -174,7 +173,7 @@ server.on('message', function (message, remote) {
 	    client.close();
 	}
     });
-    
+    console.log("[" + res_host +":" +res_port + "] >> " + response);
 });
 server.bind(PORT, HOST);
 

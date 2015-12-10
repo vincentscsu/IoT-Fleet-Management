@@ -3,11 +3,11 @@ var http = require('http');
 
 // Constants
 var ip = require('./ip')();
-var MY_PORT = 1357;
+var MY_PORT = 1337;
 var MY_HOST = ip;
 var TARGET_PORT = 1234;
-var TARGET_HOST = '10.0.17.10';
-var MASTER = '10.0.19.149'
+var TARGET_HOST = ip;
+var MASTER = ip;
     
 var pir = null;
 var light = null;
@@ -40,15 +40,17 @@ server.on('message', function (message, remote) {
 	msg = message[i].split(":");
 	console.log(msg);
 	if (msg[0] == "light") {
-	    light = msg[1];
+	    if (parseInt(msg[1]) > 0) 
+		light = msg[1];
 	} else if (msg[0] == "temp") {
-	    temp = msg[1];
+	    if (parseInt(msg[1]) > 0) 
+		temp = msg[1];
 	} else if (msg[0] == "pir") {
 	    pir = msg[1];
 	}
     }
 });
-server.bind(MY_PORT, MY_HOST);
+server.bind(MY_PORT);
 
 
 /***********************
@@ -57,8 +59,8 @@ server.bind(MY_PORT, MY_HOST);
 function sendPir() {
     if (pir != null) {
 	var pir_data = JSON.stringify({
-            auth_token : "YOUR_AUTH_TOKEN", 
-            text : pir ? "Motion Detected" : "No Motion"
+            auth_token : "YOUR_AUTH_TOKEN",
+            text : pir == "true" ? "Motion Detected" : "No Motion"
 	});
 	
 	var options = {
@@ -114,11 +116,13 @@ function sendTemp() {
     }
 }
 
-var start_time;
+var start_time = null;
 var light_data = []
 function sendLight() {
     if (light != null) {
-	start_time = new Date
+	if (start_time == null) {
+	    start_time = new Date;
+	}
 	light_data.push({"x": (new Date - start_time)/1000 | 0, "y": light | 0});
 	if (light_data.length > 10) {
 	    light_data.shift();
