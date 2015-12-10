@@ -9,7 +9,6 @@ var board = new grove.Board();
 
 var PORT = 1234;
 var HOST = require('./ip')();
-var MASTER = '192.168.1.82';
 
 /*********************
  ***** PIR SETUP *****
@@ -30,7 +29,7 @@ function readValues() {
     console.log("Temp: " + board.readTemp());
     console.log("PIR: " + pir_reading);
 }
-setInterval(readValues, 1000);
+//setInterval(readValues, 1000);
 
 
 
@@ -38,7 +37,7 @@ setInterval(readValues, 1000);
 
 /***********************
  ***** UPDATE DASH *****
- ***********************/
+ **********************
 function sendPir() {
     var pir_data = JSON.stringify({
         auth_token : "YOUR_AUTH_TOKEN", 
@@ -136,7 +135,7 @@ function sendAll() {
     sendLight();
 }
 setInterval(sendAll, 2000);
-
+*/
 
 
 /**************************

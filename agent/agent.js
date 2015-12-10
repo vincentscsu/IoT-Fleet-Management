@@ -11,7 +11,7 @@ var exec = require('child_process').exec;
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
-var MASTER_IP = '192.168.1.81';
+var MASTER_IP = '10.0.19.149';
 var PORT = 8000;
 
 server.listen(PORT, function () {
