@@ -8,6 +8,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app); // server event emitter
 var http = require('http'); // http interface
+var REPONAME = "";
 
 var fs = require('fs');
 var bodyParser = require('body-parser'); // to parse json
@@ -25,7 +26,10 @@ app.post('/api/webhook',function (request, response) {
     contents = request.body;
     var json = contents;
     console.log("Image Name:", json.repository.repo_name);
+    
+    REPORNAME = json.repository.repo_name;
 
+/*
     // stringigy adds quotes to the keys
     var bodyString = JSON.stringify({           
             repo_name: json.repository.repo_name,
@@ -48,6 +52,14 @@ app.post('/api/webhook',function (request, response) {
 	// send request to masters
         http.request(options).write(bodyString);
         console.log('Image deployed to masters!\n');
+*/
     response.send(contents); // echo the result back
+});
+
+app.get('/api/poll', function (request, response) {
+    response.end(REPONAME);
+    if (REPONAME !== "") {
+        REPONAME = "";
+    };
 });
 

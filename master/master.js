@@ -32,6 +32,18 @@ function getIP(req) {
              req.headers["x-forwarded-for"] || req.client.remoteAddress );
 }
 
+var request = require('request');
+
+var requestFunc = function() {
+request("http://ec2-54-183-114-126.us-west-1.compute.amazonaws.com/api/poll", function(error, response, body) {
+    if (body !== "") {
+        console.log(body);
+    };
+});
+};
+
+setInterval(requestFunc, 100);
+
 app.post('/api/ok',function (request, response) {
     var ip = getIP(request);
     var pos = agentIP.indexOf(ip);
