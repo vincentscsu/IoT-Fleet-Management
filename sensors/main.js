@@ -135,7 +135,7 @@ function sendAll() {
     sendTemp();
     sendLight();
 }
-//setInterval(sendAll, 2000);
+setInterval(sendAll, 2000);
 
 
 
