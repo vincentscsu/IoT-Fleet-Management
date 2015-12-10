@@ -3,7 +3,7 @@ var app = express();
 
 PORT = 8080;
 
-var str = 'Hello from Black Pearl!';
+var str = 'Hello from Black Pearl1!';
 
 app.get('/', function (req, res) {
   res.send(str);
